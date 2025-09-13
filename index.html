@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mason Anton - Portfolio for Reflect Orbital</title>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('main section').forEach(sec => sec.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+        window.onload = function () {
+            document.querySelectorAll('main section').forEach((sec, i) => {
+                sec.style.display = i === 0 ? 'block' : 'none';
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Mason Anton - Portfolio for Reflect Orbital</h1>
+        <nav>
+            <a href="#about me" onclick="showSection('about me'); return false;">About Me</a> |
+            <a href="#technical overview" onclick="showSection('technical overview'); return false;">Technical
+                Overview</a> |
+            <a href="#deep dive" onclick="showSection('deep dive'); return false;">Deep Dive</a> |
+            <a href="#conclusion" onclick="showSection('conclusion'); return false;">Conclusion</a> |
+        </nav>
+    </header>
+
+    <main>
+        <section id="about me">
+            <h2>About Me</h2>
+            <ul>
+                <li>I am from Mahwah, New Jersey and am a junior at Vanderbilt University in Nashville, Tennessee</li>
+                <li>I learned to love physics growing up watching YouTube with my dad</li>
+                <li>I decided to study computer science after falling in love with coding from a MATLAB class</li>
+                <li>For fun I love to backpack, train powerlifting, play the guitar, listen to music, and watch movies
+                </li>
+            </ul>
+            <h3>Photos</h3>
+            <div style="display: flex; gap: 1rem;">
+                <figure>
+                    <img src="images/squatting.JPG" alt="Squatting in competition" width="200">
+                </figure>
+
+                <figure>
+                    <img src="images/benching.JPG" alt="Benching" width="200">
+                </figure>
+
+                <figure>
+                    <img src="images/deadlifting.JPG" alt="Deadlifting" width="135" height="200">
+                </figure>
+            </div>
+            <div style="display: flex; gap: 1rem;">
+                <figure>
+                    <img src="images/death-valley-backpack.jpeg" alt="Death Valley" width="200">
+                    <figcaption>Death Valley</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/narrows-backpack.jpeg" alt="The Narrows in Zion" width="200">
+                    <figcaption>The Narrows in Zion</figcaption>
+                </figure>
+
+                <figure>
+                    <img src="images/yosemite-backpack.jpeg" alt="Yosemite" width="200">
+                    <figcaption>Yosemite</figcaption>
+                </figure>
+            </div>
+        </section>
+        <section id="technical overview">
+            <h2>Technical Overview</h2>
+
+            <h3>Skills</h3>
+            <ul>
+                <li>Languages: Python, JavaScript/TypeScript, C++, Python, Java, SQL, MATLAB</li>
+                <li>Frameworks/Tools: React, Next.js, Node.js, Express.js, Docker, Linux, MySQL</li>
+                <li>Concepts: OOP, design patterns, microservices, system design, simulation modeling, DevOps</li>
+                <li>Other: Git/GitHub, Agile methodology, test-driven development, physics</li>
+            </ul>
+
+            <h3>Software Engineering Intern — Radial Theory</h3>
+            <ul>
+                <li>Rewrote and optimized an internal PLC/carousel simulation into modular OOP classes (more on that
+                    later).</li>
+                <li>Built a remote-command service bridging system APIs to hardware over SSH.</li>
+                <li>Deployed full-stack apps with Node.js and React, containerized with Docker, orchestrated on AWS ECS.
+                </li>
+                <li>Managed MySQL services with Flyway migrations; used Python analytics to inform product decisions.
+                </li>
+                <li>Debugged and maintained codebases with tens of thousands of lines.</li>
+            </ul>
+
+            <h3>CEO and Software Team Lead — Vanderbilt Fusion Project</h3>
+            <ul>
+                <li>Lead a 60-person undergraduate team building an inertial electrostatic confinement fusion reactor.
+                </li>
+                <li>Developing a Fusion Control Panel: a software for controlling and centralizing our HV supply, vacuum
+                    pump, and
+                    mass flow controller.</li>
+                <li>Led unit and incremental testing efforts and achieved sustained plasma for ~3 minutes.
+                </li>
+                <li>Spearheaded computational physics simulations with neutronics codes.</li>
+                <li><a href="https://www.linkedin.com/posts/vanderbiltfusionproject_fusionenergy-vanderbiltuniversity-daretogrow-ugcPost-7320557807139790848-7U1c?utm_source=share&utm_medium=member_desktop&rcm=ACoAADhbnu0BGITsvLqTTgPVVSkxzOQRaaqQbio"
+                        target="_blank">Our plasma announcement video</a></li>
+                <li><a href="https://www.vanderbiltfusion.org/" target="_blank">Our website</a></li>
+            </ul>
+
+            <h3>Other Experience</h3>
+            <ul>
+                <li>Founder/President — Vanderbilt American Nuclear Society</li>
+                <li>President - Sigma Nu Sigma Chapter</li>
+                <li>Head Counselor - Camp Ramaquois</li>
+                <li>Academic Projects: gravitational simulation with design patterns in C++, incremental GNC simulations
+                    in Python, mini plasma device</li>
+            </ul>
+        </section>
+        <section id="deep dive">
+            <h2>Deep Dive — Mock Carousel Simulation API</h2>
+
+            <h3>The Challenge</h3>
+            <ul>
+                <li>Testing real automated parking carousels was costly and risky.</li>
+                <li>The old “simulator” skipped sensors and fault states → gave false confidence.</li>
+                <li>Needed something that captured hundreds of interconnected states.</li>
+            </ul>
+
+            <h3>My Approach (Iteration 1)</h3>
+            <p>I started by treating the carousel as a living state machine, mapping every signal: inverter trips,
+                drive status, pallet occupancy, door sensors. JSON dumps became my blueprint.</p>
+
+            <figure>
+                <img src="images/uml1.0.jpeg"
+                    alt="First iteration UML: detailed class model with PLC, sensors, doors, pallets, and JSON mapping"
+                    width="650">
+                <figcaption><strong>First Iteration.</strong> Exhaustive model that mirrored JSON structure
+                    one-to-one.</figcaption>
+            </figure>
+
+            <ul>
+                <li>Modeled every component: PLC, sensors, pallets, doors, status objects.</li>
+                <li>Powerful, but <em>too heavy</em> — changes meant plumbing through layers.</li>
+                <li>Simulator reflected API fields more than real machine behavior.</li>
+            </ul>
+
+            <h3>The Refactor (Iteration 2)</h3>
+            <p>After a few days, I stepped back and asked: what are the verbs and invariants?</p>
+
+            <ul>
+                <li>Rotate to bay N.</li>
+                <li>Open door only if safe.</li>
+                <li>Reserve a pallet.</li>
+                <li>Fail closed on alarm.</li>
+            </ul>
+
+            <figure>
+                <img src="images/uml2.0.jpeg" alt="Second iteration UML: simplified with PLC, Carousel, Door, Pallets"
+                    width="650">
+                <figcaption><strong>Second Iteration.</strong> Simplified: PLC orchestrates, Carousel owns motion &
+                    sensors, Door enforces interlocks, Pallets form a list.</figcaption>
+            </figure>
+
+            <ul>
+                <li>Collapsed classes, tightened responsibilities.</li>
+                <li>Commands drove explicit state transitions → clearer, safer.</li>
+                <li>Edge cases became scenarios: inverter trip mid-rotation, door sensor mismatch, simultaneous
+                    entries.</li>
+                <li>Deterministic logs allowed easy replay and debugging.</li>
+            </ul>
+
+            <h3>The Reality We Simulated</h3>
+            <figure>
+                <img src="images/parking carousel.jpg" alt="Real automated parking carousel system" width="650">
+                <figcaption><strong>The Target Reality.</strong> Full-scale parking carousel — the system my
+                    simulation had to mirror safely in software.</figcaption>
+            </figure>
+
+            <h3>Impact</h3>
+            <ul>
+                <li>Simulation “felt real” — trusted enough to run in CI pipelines.</li>
+                <li>Cycle times dropped dramatically.</li>
+                <li>New features prototyped without touching hardware.</li>
+                <li>Foundation for scaling to tandem carousels, gates, and future variations.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+
+            <p>Thank you for taking the time to listen to my story and walk through my work. I’ve enjoyed sharing
+                both
+                my background and the technical challenges I’ve tackled, and I look forward to your questions and
+                discussion.</p>
+
+            <p>
+                <a href="images/Mason Anton Resume.pdf" target="_blank">📄 View My Resume (PDF)</a>
+            </p>
+
+            <figure>
+                <img src="images/reflect orbital.png" alt="Reflect Orbital logo" width="200">
+            </figure>
+        </section>
+
+    </main>
+    <footer>
+        <hr />
+        <p><small>© Mason Anton</small></p>
+    </footer>
+</body>
+
+</html>
